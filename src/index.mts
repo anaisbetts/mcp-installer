@@ -1,15 +1,24 @@
 #!/usr/bin/env node
 
-import { Server } from "@modelcontextprotocol/sdk/server/index.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import {
-  CallToolRequestSchema,
-  ListToolsRequestSchema,
-} from "@modelcontextprotocol/sdk/types.js";
-import * as os from "os";
-import * as fs from "fs";
-import * as path from "path";
-import { spawnPromise } from "spawn-rx";
+import { Server } from '@modelcontextprotocol/sdk/server/index.js';
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
+import * as os from 'os';
+import * as fs from 'fs';
+import * as path from 'path';
+import { spawnPromise } from 'spawn-rx';
+
+interface CallToolRequest {
+  params: {
+    name: string;
+    arguments?: {
+      name?: string;
+      path?: string;
+      args?: string[];
+      env?: string[];
+    };
+  };
+}
 
 const server = new Server(
   {
@@ -303,7 +312,7 @@ async function installRepoMcpServer(
   };
 }
 
-server.setRequestHandler(CallToolRequestSchema, async (request) => {
+server.setRequestHandler(CallToolRequestSchema, async (request: CallToolRequest) => {
   try {
     if (request.params.name === "install_repo_mcp_server") {
       const { name, args, env } = request.params.arguments as {

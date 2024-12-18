@@ -1,13 +1,16 @@
 {
   "name": "@anaisbetts/mcp-installer",
   "version": "0.5.0",
+  "type": "module",
   "bin": {
     "mcp-installer": "./lib/index.mjs"
   },
   "description": "A MCP server to install other MCP servers",
-  "main": "index.js",
+  "main": "./lib/index.mjs",
   "scripts": {
-    "prepare": "tsc && shx chmod +x ./lib/index.mjs"
+    "prepare": "tsc && shx chmod +x ./lib/index.mjs",
+    "build": "tsc",
+    "start": "node --loader ts-node/esm src/index.mts"
   },
   "author": "Ani Betts <anais@anaisbetts.org>",
   "license": "MIT",
@@ -17,6 +20,7 @@
     "spawn-rx": "^4.0.0"
   },
   "devDependencies": {
+    "@types/node": "^22.10.2",
     "shx": "^0.3.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"

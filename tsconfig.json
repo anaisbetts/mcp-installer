@@ -10,12 +10,15 @@
     "noUnusedLocals": true,
     "noImplicitThis": true,
     "noUnusedParameters": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "pretty": true,
-    "target": "es2015",
+    "target": "es2020",
     "outDir": "lib",
-    "lib": ["dom", "es2015"]
+    "lib": [
+      "dom",
+      "es2020"
+    ]
   },
   "formatCodeOptions": {
     "indentSize": 2,
