@@ -4,6 +4,8 @@ This server is a server that installs other MCP servers for you. Install it, and
 
 ![image](https://github.com/user-attachments/assets/d082e614-b4bc-485c-a7c5-f80680348793)
 
+<a href="https://glama.ai/mcp/servers/y4xsqrbxg5"><img width="380" height="200" src="https://glama.ai/mcp/servers/y4xsqrbxg5/badge" alt="mcp-installer MCP server" /></a>
+
 ### How to install:
 
 Put this into your `claude_desktop_config.json` (either at `~/Library/Application Support/Claude` on macOS or `C:\Users\NAME\AppData\Roaming\Claude` on Windows):
